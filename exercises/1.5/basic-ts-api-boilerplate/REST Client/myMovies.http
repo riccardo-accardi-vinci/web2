@@ -1,0 +1,21 @@
+### Lire tous les films
+GET http://localhost:3000/myMovies
+
+### Lire les films filtrés par durée minimale
+GET http://localhost:3000/myMovies?minimum-duration=130
+
+### Lire un film par ID
+GET http://localhost:3000/myMovies/1
+
+### Créer un nouveau film
+POST http://localhost:3000/myMovies
+Content-Type: application/json
+
+{
+  "title": "Batman Begins",
+  "director": "Christopher Nolan",
+  "duration": 140,
+  "budget": 150000000,
+  "description": "The beginning of Batman's journey",
+  "imageUrl": "http://example.com/batman.jpg"
+}
