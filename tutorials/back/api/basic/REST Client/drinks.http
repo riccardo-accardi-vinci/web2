@@ -18,3 +18,26 @@ Content-Type: application/json
     "volume":0.25,
     "price":4.5    
 }
+
+### Try to create a drink with incomplete data
+POST {{baseUrl}}/drinks
+Content-Type: application/json
+
+{
+    "title":"Missing Data Drink",
+    "volume":0.25,
+    "price":4.5    
+}
+
+### Delete a drink
+DELETE {{baseUrl}}/drinks/2
+
+
+### Update the drink identified by 5
+PATCH {{baseUrl}}/drinks/5
+Content-Type: application/json
+
+{
+    "title":"Citronnade"
+}
+

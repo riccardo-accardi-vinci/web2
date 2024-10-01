@@ -99,6 +99,4 @@ if (minDuration) {
     return res.status(201).json(newMovie);
   });
   
-  
-
 export default router;

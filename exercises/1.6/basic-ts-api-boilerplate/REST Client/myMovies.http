@@ -20,3 +20,25 @@ Content-Type: application/json
   "imageUrl": "http://example.com/batman.jpg"
 }
 
+# DELETE a movie by ID
+DELETE http://localhost:3000/myMovies/1
+
+# PATCH update a movie by ID
+PATCH http://localhost:3000/myMovies/2
+Content-Type: application/json
+
+{
+  "title": "Updated Movie Title",
+  "duration": 130
+}
+
+# PUT replace a movie or create a new one
+PUT http://localhost:3000/myMovies/3
+Content-Type: application/json
+
+{
+  "title": "New Movie Title",
+  "director": "New Director",
+  "duration": 120,
+  "budget": 50000000
+}
