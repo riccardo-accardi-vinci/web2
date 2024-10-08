@@ -1,0 +1,29 @@
+### Lire tous les textes
+GET http://localhost:3000/texts
+
+### Lire tous les textes filtrés par niveau
+GET http://localhost:3000/texts?level=easy
+
+### Lire un texte par ID
+GET http://localhost:3000/texts/1
+
+### Créer un texte
+POST http://localhost:3000/texts
+Content-Type: application/json
+
+{
+  "content": "This is a typing test for beginners.",
+  "level": "easy"
+}
+
+### Supprimer un texte
+DELETE http://localhost:3000/texts/6
+
+### Remplacer un texte
+PUT http://localhost:3000/texts/8
+Content-Type: application/json
+
+{
+  "content": "This is an updated typing test for advanced users.",
+  "level": "hard"
+}
