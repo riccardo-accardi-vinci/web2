@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllMovies, getFilteredMovies, getMovieById, createMovie, deleteMovie, updateMoviePartial, replaceOrCreateMovie } from "../services/films";
+import { getFilteredMovies, getMovieById, createMovie, deleteMovie, updateMoviePartial, replaceOrCreateMovie } from "../services/films";
 import { MyMovie } from "../types";
 
 const router = Router();
