@@ -1,67 +1,77 @@
 import React from "react";
 
-// Définir une interface simple pour les props du composant Cinema
-interface CinemaProps {
-  name: string;
-  movie1Title: string;
-  movie1Director: string;
-  movie2Title: string;
-  movie2Director: string;
+// Définition du type Movie
+interface Movie {
+  title: string;
+  director: string;
 }
 
-// Composant Cinema avec typage des props directement dans les paramètres
-const Cinema = ({ name, movie1Title, movie1Director, movie2Title, movie2Director }: CinemaProps) => {
+// Définition du type pour les props de PageTitle
+interface PageTitleProps {
+  title: string;
+}
+
+// Définition du type pour les props de Cinema
+interface CinemaProps {
+  name: string;
+  movie1: Movie;
+  movie2: Movie;
+}
+
+// Composant PageTitle avec typage des props
+const PageTitle = ({ title }: PageTitleProps) => {
+  return <h1>{title}</h1>;
+};
+
+// Composant Cinema avec typage des props et utilisation du type Movie
+const Cinema = ({ name, movie1, movie2 }: CinemaProps) => {
   return (
     <div>
       <h2>{name}</h2>
       <ul>
         <li>
-          <strong>{movie1Title}</strong> - Réalisateur : {movie1Director}
+          <strong>{movie1.title}</strong> - Réalisateur : {movie1.director}
         </li>
         <li>
-          <strong>{movie2Title}</strong> - Réalisateur : {movie2Director}
+          <strong>{movie2.title}</strong> - Réalisateur : {movie2.director}
         </li>
       </ul>
     </div>
   );
 };
 
+// Composant principal App
 const App = () => {
-  const cinema1Data = {
-    name: "Cinéma Alpha",
-    movie1Title: "Le Voyage",
-    movie1Director: "Jean Dupont",
-    movie2Title: "L'Évasion",
-    movie2Director: "Marie Curie",
+  const pageTitle = "Informations sur les films dans les cinémas";
+
+  const cinema1Name = "UGC DeBrouckère";
+  const movie1: Movie = {
+    title: "HAIKYU-THE DUMPSTER BATTLE",
+    director: "Susumu Mitsunaka",
+  };
+  const movie2: Movie = {
+    title: "GOODBYE JULIA",
+    director: "Mohamed Kordofani",
   };
 
-  const cinema2Data = {
-    name: "Cinéma Beta",
-    movie1Title: "La Mer",
-    movie1Director: "Sophie Martin",
-    movie2Title: "Les Montagnes",
-    movie2Director: "Claude Bernard",
+  const cinema2Name = "UGC Toison d'Or";
+  const movie3: Movie = {
+    title: "THE WATCHERS",
+    director: "Ishana Night Shyamalan",
+  };
+  const movie4: Movie = {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
   };
 
   return (
     <div>
-      <h1>Programme des Cinémas</h1>
+      {/* Utilisation du composant PageTitle avec son titre */}
+      <PageTitle title={pageTitle} />
 
-      <Cinema
-        name={cinema1Data.name}
-        movie1Title={cinema1Data.movie1Title}
-        movie1Director={cinema1Data.movie1Director}
-        movie2Title={cinema1Data.movie2Title}
-        movie2Director={cinema1Data.movie2Director}
-      />
-
-      <Cinema
-        name={cinema2Data.name}
-        movie1Title={cinema2Data.movie1Title}
-        movie1Director={cinema2Data.movie1Director}
-        movie2Title={cinema2Data.movie2Title}
-        movie2Director={cinema2Data.movie2Director}
-      />
+      {/* Utilisation du composant Cinema avec les films correspondants */}
+      <Cinema name={cinema1Name} movie1={movie1} movie2={movie2} />
+      <Cinema name={cinema2Name} movie1={movie3} movie2={movie4} />
     </div>
   );
 };
