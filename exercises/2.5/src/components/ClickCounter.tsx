@@ -1,12 +1,21 @@
 import { useState } from 'react';
 
-function ClickCounter() {
+type ClickCounterProps = {
+    title: string;
+    message: string;
+};
+
+function ClickCounter({ title, message }: ClickCounterProps) {
     const [count, setCount] = useState(0);
 
     return (
-        <button onClick={() => setCount(count + 1)}>
-            count is {count}
-        </button>
+        <div>
+            <h2>{title}</h2>
+            <button onClick={() => setCount(count + 1)}>
+                count is {count}
+            </button>
+            {count >= 10 && <p>{message}</p>}
+        </div>
     );
 }
 
