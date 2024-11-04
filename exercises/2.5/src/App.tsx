@@ -4,9 +4,6 @@ import ClickCounter from './components/ClickCounter';
 function App() {
     return (
         <>
-            <div>
-                yo
-            </div>
             <h1>Vite + React</h1>
             <div className="card">
             <ClickCounter 
